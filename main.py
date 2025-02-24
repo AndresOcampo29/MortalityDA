@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 file_path = 'WHOMortalityDatabase.csv'
 
 df = pd.read_csv(file_path, skiprows=6, index_col=False)
@@ -37,16 +38,9 @@ df['Death rate per 100 000 population'] = df['Death rate per 100 000 population'
 # Statistic summary
 print(df[['Number', 'Death rate per 100 000 population']].describe())
 print(df.info())
-# # Death rate per 100 000 population by year
-# plt.figure(figsize=(12, 6))
-# sns.lineplot(data=df, x='Year',
-#              y='Death rate per 100 000 population', hue='Country Name')
-# plt.title('Death rate per 100 000 population by year')
-# plt.show()
-
-# # Data Frame correlation matrix
-# plt.figure(figsize=(8, 6))
-# sns.heatmap(df[['Year', 'Number', 'Death rate per 100 000 population']
-#                ].corr(), annot=True, cmap='coolwarm')
-# plt.title('Correlation matrix')
-# plt.show()
+# Death rate per 100 000 population by year
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=df, x='Year',
+             y='Death rate per 100 000 population')
+plt.title('Death rate per 100 000 population by year in Colombia')
+plt.show()
